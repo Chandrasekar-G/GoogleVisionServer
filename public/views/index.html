@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sirius Page Run</title>
+    <link rel="stylesheet" href="../stylesheets/index.css" />
+</head>
+
+<body>
+    <h2>Sirius Page Run</h2>
+    <br><br>
+    <!-- Upload  -->
+    <form id="file-upload-form" class="uploader" action="/api/vision" method='post' encType="multipart/form-data">
+        <input id="file-upload" type="file" name="visionImage" accept="image/*" />
+
+        <label for="file-upload" id="file-drag">
+            <img id="file-image" src="#" alt="Preview" class="hidden">
+            <div id="start">
+                <i class="fa fa-download" aria-hidden="true"></i>
+                <div>Select a file or drag here</div>
+                <div id="notimage" class="hidden">Please select a png image</div>
+                <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+            </div>
+
+            <div id="response" class="hidden">
+                <div id="messages"></div>
+                <progress class="progress" id="file-progress" value="0">
+                    <span>0</span>%
+                </progress>
+            </div>
+        </label>
+        <input type='submit' id="submit-btn" class="hidden btn btn-primary" value='Upload!' />
+    </form>
+
+    <script type="text/javascript" src="../javascripts/index.js"></script>
+</body>
+
+</html>
