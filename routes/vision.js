@@ -1,7 +1,13 @@
 var express = require("express");
 var router = express.Router();
 const vision = require("@google-cloud/vision");
-const client = new vision.ImageAnnotatorClient();
+const client = new vision.ImageAnnotatorClient({
+  projectId: process.env.PROJECT_ID,
+  credentials: {
+    private_key: process.env.PRIVATE_KEY.replace(/\\n/g, "\n"),
+    client_email: process.env.CLIENT_EMAIL
+  }
+});
 
 router.post("/", function(req, res, next) {
   if (!req.files) {
